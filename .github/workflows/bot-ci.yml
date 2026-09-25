@@ -14,6 +14,7 @@ jobs:
         with:
           python-version: "3.13"
       - run: python -m unittest discover -s tests -v
+      - run: python scripts/live_readiness_check.py
       - run: python scripts/astra_bot.py
       - name: Assert paper-only
         run: python -c "import json; d=json.load(open('evidence/astra_bot_snapshot.json')); assert d['mode']=='PAPER' and d['live_order_submitted'] is False; print('ASTRA BOT PAPER SMOKE PASS')"
