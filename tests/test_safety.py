@@ -11,5 +11,5 @@ class SafetyTests(unittest.TestCase):
  def test_live_missing_credentials_blocked(self):
   with self.assertRaises(KrakenError): KrakenSpot(KrakenConfig(live_enabled=True))
  def test_risk_halts(self):
-  r=RiskGuardian(); r.reset_day(100); self.assertTrue(r.observe(91)["halted"]); self.assertEqual(r.observe(91)["reason"], "daily_loss_limit")
+  r=RiskGuardian(); r.reset_day(100); self.assertTrue(r.observe(98)["halted"]); self.assertEqual(r.observe(98)["reason"], "daily_loss_limit")
 if __name__=="__main__":unittest.main()
